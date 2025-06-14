@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Kut Kut BBlog</title>
+    </head>
+   <title>Kut Kut blog</title>
+    <body>
+        <div>
+            <h1><a href="/">Kut Kut Blog</a></h1>
+        </div>
+
+
+        {% for post in posts %}
+        <div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>published: {{ post.published_date }}</p>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
+
+    </body>
+</html>
