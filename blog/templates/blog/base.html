@@ -15,9 +15,17 @@
             <a href="#menu">Menu</a>
         </header>
         <!-- Nav -->
-			 <nav id="menu"><ul class="links"><li><a href="{% url 'post_list' %}">Home</a></li>
+			 <nav id="menu">
+                <ul class="links">
+                    <li><a href="{% url 'post_list' %}">Home</a></li>
+                    <li><a href="{% url 'post_table' %}">Posts Table</a></li>
 					{% if user.is_authenticated %}
+                        <li><a href="{% url 'logout_view' %}">Logout</a></li>
 						<li><a href="{% url 'post_new' %}">New Post</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login_view' %}">Login</a></li>
+
+                
 					{% endif %} 
 				</ul>
 			</nav>
@@ -26,7 +34,8 @@
             <div class="inner">
                 <header class="align-center">
                     <p>KUT KUT BLOG</p>
-                    <h2>New posts</h2>
+                    {% block header %}
+                    {% endblock %}
                 </header>
             </div>
         </section>
@@ -42,7 +51,11 @@
 			</div>
 		</section>
         <!-- Scripts -->
-			<script src="static/js/jquery.min.js"></script><script src="static/js/jquery.scrollex.min.js"></script><script src="static/js/skel.min.js"></script><script src="static/js/util.js"></script><script src="static/js/main.js"></script></body></html>
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+            <script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+            <script src="{% static 'js/skel.min.js' %}"></script>
+            <script src="{% static 'js/util.js' %}"></script>
+            <script src="{% static 'js/main.js' %}"></script></body></html>
         <footer id="footer">
             
         </footer>
